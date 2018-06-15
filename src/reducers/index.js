@@ -1,11 +1,9 @@
-export default (state = [], action = {}) => {
-  switch (action.type) {
-  case 'NEW_GAME':
-    return []
-  case 'MAKE_GUESS':
-    return action.payload
-  default:
-    return state
-  }
+import { combineReducers } from 'redux'
+import LettersGuessed from './LettersGuessed'
+import WordToGuess from './WordToGuess'
 
-}
+
+export default combineReducers({
+  LettersGuessed,
+  WordToGuess
+})
