@@ -1,0 +1,2 @@
+const NEW_GAME = 'NEW_GAME'
+const MAKE_GUESS = 'MAKE_GUESS'
