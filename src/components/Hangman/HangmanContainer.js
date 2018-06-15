@@ -13,6 +13,11 @@ class HangmanContainer extends React.PureComponent {
     this.props.newGame(w)
   }
 
+  startNewGame =() => {
+    const f = Logic.randomWord()
+    this.props.newGame(f)
+  }
+
   render() {
     const WordBeingGuessed = this.props.WordBeingGuessed
     const LettersGuessedSoFar = this.props.LettersGuessedSoFar
@@ -21,7 +26,11 @@ class HangmanContainer extends React.PureComponent {
     if(WordBeingGuessed==='') {
       return 'Loading...'
     }else {
-      return <div><Hangman wordShowcase = {Logic.showGuess(WordBeingGuessed,LettersGuessedSoFar)} wrongCount = {Logic.wrongGuessCount(WordBeingGuessed, LettersGuessedSoFar)} /><GuessLetterForm/></div>
+      return <div>
+        <Hangman wordShowcase = {Logic.showGuess(WordBeingGuessed,LettersGuessedSoFar)} wrongCount = {Logic.wrongGuessCount(WordBeingGuessed, LettersGuessedSoFar)} />
+        <GuessLetterForm/>
+        <button onClick = {this.startNewGame}>Start New Game</button>
+      </div>
     }
 
 
