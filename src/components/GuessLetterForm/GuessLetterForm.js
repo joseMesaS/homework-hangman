@@ -1,13 +1,15 @@
 import * as React from 'react'
-// import {connect} from 'react-redux'
+import {connect} from 'react-redux'
+import {makeGuess} from '../../actions/game'
 
-export default class GuessLetterForm extends React.PureComponent {
+class GuessLetterForm extends React.PureComponent {
   state = {letter: ''}
 
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.state.letter) {
       console.log(this.state.letter)
+      this.props.makeGuess(this.state.letter)
     }
   }
 
@@ -28,4 +30,4 @@ export default class GuessLetterForm extends React.PureComponent {
 
 
 
-// export default connect(null, {createAlbum} )(AddAlbumForm)
+export default connect(null, {makeGuess} )(GuessLetterForm)

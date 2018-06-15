@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import LettersGuessed from './LettersGuessed'
-import WordToGuess from './WordToGuess'
+import LettersGuessedSoFar from './LettersGuessedSoFar'
+import WordBeingGuessed from './WordBeingGuessed'
 
 
 export default combineReducers({
-  LettersGuessed,
-  WordToGuess
+  LettersGuessedSoFar,
+  WordBeingGuessed
 })
