@@ -14,10 +14,16 @@ class HangmanContainer extends React.PureComponent {
   }
 
   render() {
-    return <div>
-      <Hangman />
-      <GuessLetterForm/>
-    </div>
+    const WordBeingGuessed = this.props.WordBeingGuessed
+
+    if(WordBeingGuessed==='') {
+      return 'Loading...'
+    }else {
+      return <div><Hangman wordShowcase = {Logic.showGuess(WordBeingGuessed,this.props.LettersGuessedSoFar)}/><GuessLetterForm/></div>
+    }
+
+
+
   }
 }
 
