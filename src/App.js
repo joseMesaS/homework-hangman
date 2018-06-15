@@ -4,8 +4,8 @@ import './App.css';
 import {Provider} from 'react-redux'
 import store from './store.js'
 import {Route} from 'react-router-dom'
-import WelcomePageContainer from './WelcomePage/WelcomePageContainer'
-import HangmanContainer from './Hangman/HangmanContainer'
+import WelcomePageContainer from './components/WelcomePage/WelcomePageContainer.js'
+
 
 class App extends Component {
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
           </p>
           <main>
             <Route exact path="/" component={WelcomePageContainer} />
-            <Route exact path="/hangman" component={HangmanContainer} />
+
           </main>
         </div>
       </Provider>
