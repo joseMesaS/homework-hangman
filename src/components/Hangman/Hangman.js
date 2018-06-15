@@ -9,6 +9,7 @@ export default function Hangman(props) {
     </div>
     <div className='WelcomeBody'>
       <h2>{props.wordShowcase}</h2>
+      <p>Wrong Guess Count: {props.wrongCount}</p>
     </div>
   </div>)
 }
