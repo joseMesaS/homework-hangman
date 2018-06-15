@@ -1,9 +1,17 @@
 import * as React from 'react'
 import Hangman from './Hangman'
 import GuessLetterForm from '../GuessLetterForm/GuessLetterForm'
+import * as Logic from  '../../GameLogic/game'
+import {connect} from 'react-redux'
+import {newGame} from '../../actions/game'
 
-export default class HangmanContainer extends React.PureComponent {
 
+class HangmanContainer extends React.PureComponent {
+  componentDidMount(){
+    const w = Logic.randomWord()
+    console.log(w)
+    this.props.newGame(w)
+  }
 
   render() {
     return <div>
@@ -12,3 +20,13 @@ export default class HangmanContainer extends React.PureComponent {
     </div>
   }
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+    WordBeingGuessed:state.WordBeingGuessed,
+    LettersGuessedSoFar:state.LettersGuessedSoFar
+  }
+}
+
+export default connect(mapStateToProps, {newGame} )(HangmanContainer)
