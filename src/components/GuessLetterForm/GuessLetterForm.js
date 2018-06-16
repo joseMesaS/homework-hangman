@@ -23,9 +23,10 @@ class GuessLetterForm extends React.PureComponent {
     return (<form onSubmit={this.handleSubmit}>
       <label>
         Enter a Letter:
-        <input type="text" name="letter" value={this.state.letter} onChange={this.handleChange} required maxlength="1"/>
+        <input type="text" name="letter" value={this.state.letter} onChange={this.handleChange} required />
       </label>
       <button type="submit">Guess</button>
+      {this.state.letter.length>1 && <p>'You can only guess one letter at a time'</p>}
     </form>)
   }
 }
