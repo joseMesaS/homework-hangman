@@ -27,8 +27,12 @@ class HangmanContainer extends React.PureComponent {
       return 'Loading...'
     }else {
       return <div>
-        <Hangman wordShowcase = {Logic.showGuess(WordBeingGuessed,LettersGuessedSoFar)} wrongCount = {Logic.wrongGuessCount(WordBeingGuessed, LettersGuessedSoFar)} />
-        <GuessLetterForm/>
+        <Hangman wordShowcase = {Logic.showGuess(WordBeingGuessed,LettersGuessedSoFar)}
+          wrongCount = {Logic.wrongGuessCount(WordBeingGuessed, LettersGuessedSoFar)}
+          isWinner={Logic.isWinner(WordBeingGuessed,LettersGuessedSoFar)}
+          limitGuess={Logic.wrongGuessLimit(WordBeingGuessed,LettersGuessedSoFar)}
+          gameFinished={Logic.gameFinished(WordBeingGuessed,LettersGuessedSoFar)}/>
+        {!Logic.gameFinished(WordBeingGuessed,LettersGuessedSoFar)&&<GuessLetterForm/>}
         <button onClick = {this.startNewGame}>Start New Game</button>
       </div>
     }
