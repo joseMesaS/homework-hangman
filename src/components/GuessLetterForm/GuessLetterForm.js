@@ -7,9 +7,11 @@ class GuessLetterForm extends React.PureComponent {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    if (this.state.letter) {
-      console.log(this.state.letter)
-      this.props.makeGuess(this.state.letter)
+    if (this.state.letter.length === 1) {
+      this.props.makeGuess(this.state.letter.toLowerCase())
+      this.setState({ letter: '' })
+    }else if(this.state.letter.length > 1) {
+
     }
   }
 
@@ -21,7 +23,7 @@ class GuessLetterForm extends React.PureComponent {
     return (<form onSubmit={this.handleSubmit}>
       <label>
         Enter a Letter:
-        <input type="text" name="letter" value={this.state.letter} onChange={this.handleChange} />
+        <input type="text" name="letter" value={this.state.letter} onChange={this.handleChange} required maxlength="1"/>
       </label>
       <button type="submit">Guess</button>
     </form>)
