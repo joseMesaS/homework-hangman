@@ -1,0 +1,21 @@
+.outputBody {
+  margin-bottom: 7%;
+}
+
+.messageHeader {
+  color: #61DAFB;
+}
+
+.messageHeaderLoser {
+  color: #FF0012;
+}
+
+.messageHeaderWiner {
+  color: #66CC00;
+}
+
+#newGameButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}

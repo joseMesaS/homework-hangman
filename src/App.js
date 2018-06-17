@@ -14,11 +14,12 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
           </header>
           <main>
-            <Route exact path="/" component={WelcomePageContainer} />
-            <Route exact path="/hangman" component={HangmanContainer} />
+            <div className = "gameContainer">
+              <Route exact path="/" component={WelcomePageContainer} />
+              <Route exact path="/hangman" component={HangmanContainer} />
+            </div>
           </main>
         </div>
       </Provider>

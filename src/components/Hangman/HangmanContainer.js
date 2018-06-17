@@ -4,9 +4,12 @@ import GuessLetterForm from '../GuessLetterForm/GuessLetterForm'
 import * as Logic from  '../../GameLogic/game'
 import {connect} from 'react-redux'
 import {newGame} from '../../actions/game'
+import {Button} from 'react-bootstrap'
+import './Hangman.css'
 
 
 class HangmanContainer extends React.PureComponent {
+
   componentDidMount(){
     this.startNewGame()
   }
@@ -20,26 +23,21 @@ class HangmanContainer extends React.PureComponent {
     const WordBeingGuessed = this.props.WordBeingGuessed
     const LettersGuessedSoFar = this.props.LettersGuessedSoFar
 
-
     if(WordBeingGuessed==='') {
       return 'Loading...'
     }else {
-      return <div>
+      return <div className = 'gameArea'>
         <Hangman wordShowcase = {Logic.showGuess(WordBeingGuessed,LettersGuessedSoFar)}
           wrongCount = {Logic.wrongGuessCount(WordBeingGuessed, LettersGuessedSoFar)}
           isWinner={Logic.isWinner(WordBeingGuessed,LettersGuessedSoFar)}
           limitGuess={Logic.wrongGuessLimit(WordBeingGuessed,LettersGuessedSoFar)}
           gameFinished={Logic.gameFinished(WordBeingGuessed,LettersGuessedSoFar)}/>
         {!Logic.gameFinished(WordBeingGuessed,LettersGuessedSoFar)&&<GuessLetterForm/>}
-        <button onClick = {this.startNewGame}>Start New Game</button>
+        <Button id='newGameButton' onClick = {this.startNewGame}>Start New Game</Button>
       </div>
     }
-
-
-
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {
