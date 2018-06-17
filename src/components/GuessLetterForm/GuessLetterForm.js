@@ -10,8 +10,6 @@ class GuessLetterForm extends React.PureComponent {
     if (this.state.letter.length === 1) {
       this.props.makeGuess(this.state.letter.toLowerCase())
       this.setState({ letter: '' })
-    }else if(this.state.letter.length > 1) {
-
     }
   }
 

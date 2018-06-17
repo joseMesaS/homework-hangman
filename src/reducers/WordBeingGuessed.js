@@ -1,4 +1,4 @@
-const reducer = (state = '', action = {}) => {
+export default (state = '', action = {}) => {
   switch (action.type) {
   case 'NEW_GAME':
     return action.payload
@@ -6,5 +6,3 @@ const reducer = (state = '', action = {}) => {
     return state
   }
 }
-
-export default reducer
